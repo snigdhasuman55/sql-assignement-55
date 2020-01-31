@@ -1,0 +1,358 @@
+Q1- Extract the database for first 20 values of columns-country, location name, region code and year of occurence of of significant earthquakes from bigquery public data.
+select year,country,location_name,region_code from `bigquery-public-data.noaa_significant_earthquakes.earthquakes`limit 20
+
+year	country	location_name	region_code
+1048	UK	UNITED KINGDOM:  BRITIAN	120
+1580	UK	UNITED KINGDOM:  DOVER STRAITS	120
+1757	UK	"UNITED KINGDOM:  ENGLAND: ST. MARY, SCILLY ISLANDS"	120
+1500	USA	HAWAII	150
+1668	USA	"BOSTON AND SALEM, MASSACHUSETTS"	150
+1755	USA	MASSACHUSETTS:  EAST OF CAPE ANN	150
+1788	USA	ALASKA PENINSULA	150
+1811	USA	ARKANSAS: NORTHEAST (NEW MADRID EARTHQUAKES)	150
+1812	USA	MISSOURI:  NEW MADRID	150
+1817	USA	PENNSYLVANIA:  PHILADELPHIA	150
+1820	USA	ALASKA:  EAST ALEUTIAN ISLANDS	150
+1823	USA	LAKE ERIE (GREAT LAKES)	150
+1836	USA	CALIFORNIA	150
+1839	USA	HAWAII	150
+1840	USA	PENNSYLVANIA:  PHILADELPHIA	150
+1851	USA	CALIFORNIA:  NORTHERN	150
+1851	USA	CALIFORNIA:  NORTHERN	150
+1852	USA	CALIFORNIA:  NORTHERN	150
+1853	USA	CALIFORNIA:  SAN SIMEON	150
+1854	USA	ALASKA:  GULF OF ALASKA	150
+
+
+Q2- Select data of country Iran from the table.
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where country = "IRAN" limit 20
+
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+156		634															IRAN		IRAN:  TABRIZ	38.0	46.2	140								3																
+159		662	4	26													IRAN		"IRAN:  QUMIS:  SEMNAN,DAMGHAN"	35.3	54.0	140	40000	4						3																
+183		763							7.6		7.6						IRAN		IRAN:  KHURASAN	33.3	59.3	140																								
+217		850	7	15													IRAN		IRAN:  REY (RAY)	35.3	51.2	140	45000	4						3					45000	4										
+235		858	4	19													IRAN		IRAN:  TABRIZ	38.0	46.2	140		3						3																
+242		863	2	24													IRAN		IRAN:  REY (RAY)	35.3	51.2	140		3						3																
+241		863															IRAN		IRAN:  TABRIZ; ARMENIA:  JEREVAN (ERIVAN)	38.0	46.2	140		3						3																
+244		864	1	15													IRAN		IRAN:  REY	35.3	51.2	140								2																
+263		891						20	6.3						6.3	9	IRAN		IRAN:  ARDABIL	38.3	48.3	140								3																
+273		898															IRAN		IRAN:  REY (RAY)	35.3	51.2	140								3																
+275		912	4														IRAN		IRAN:  DINAVAR	34.6	47.8	140								3																
+277		942	9	15													IRAN		IRAN:  LADNESA	36.0	51.7	140		3																						
+284		956	4	15													IRAN		IRAN:  HAMADAN	34.9	48.4	140		3						2																
+287	Tsu	957															IRAN		"IRAN:  RAY, TALQAN"	35.7	51.4	140																								
+297		977	8	19													IRAN		IRAN:  TAHERI (SIRAF)	27.4	52.2	140								3																
+333		1042	8	21													IRAN		IRAN:  TABRIZ	38.0	46.2	140	40000	4						4																
+341		1052	3														IRAN		"IRAN:  KHORASAN:  BAIHAQ, NISHAPUR"	36.0	58.8	140								3																
+339		1052															IRAN		IRAN:  KHUZESTAN:  ARRJAN	30.6	50.3	140								3																
+355		1065	12	3													IRAN		"IRAN:  KHORASAN,JABAL"	35.0	58.0	140		3						3																
+356		1066	3	31													IRAN		IRAN:  KHORASAN	34.0	58.0	140		3						3																
+
+Q3- Select location Kashan from country Iran from the database using and command.
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where country = "IRAN" and location_name = "IRAN:  KASHAN"
+	
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+1432		1778	1	30													IRAN		IRAN:  KASHAN	33.6	51.3	140	30000	4						3																
+1434		1778	12	15													IRAN		IRAN:  KASHAN	33.9	51.3	140								3																
+1526		1794	3	14													IRAN		IRAN:  KASHAN	34.0	51.4	140								2																
+
+Q4- Arrange the data of first 50 values of region code in ascending order.
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` 
+order by region_code asc
+limit 50
+
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+10411		2019	5	22	3	48	59.0	10	3.2				3.2				NETHERLANDS		THE NETHERLANDS: GRONINGEN	53.394	6.586									2			840	3								2			840	3
+5338		1992	9	11	3	57	26.5	11	7.0		7.0	6.7					CONGO		CONGO:  KABALO	-6.087	26.651	10	8	1			37	1		1		2			8	1			37	1		1		2		
+2780		1906	8	25					6.8						6.8		ETHIOPIA		ETHIOPIA:  SHOA	9.0	38.4	10																								
+6830		2005	12	5	12	19	56.6	22	6.8	6.8	7.2	6.4					CONGO		CONGO:  KALEMIE	-6.224	29.83	10	6	1						1	300	3			6	1						1	300	3		
+5209		1989	8	20	11	16	56.5	12	6.3		6.3	5.8	5.8			9	DJIBOUTI		"DJIBOUTI:  GALAFI, YABAKI"	11.766	41.942	10	2	1			2	1		1					2	1			2	1		1				
+1498		1788							5.6						5.6	8	TOGO		"TOGO:  AGUNAH, KANA; BENIN:  ABOMEY"	7.6	1.7	10								2																
+10255		2017	5	25	9	55	51.0	10	4.4			4.4					TANZANIA		TANZANIA: MWANZA	-3.043	32.888	10	1	1			18	1							1	1			18	1						
+5469		1997	7	21	8	45	49.1	5	5.0			5.0					SOUTH AFRICA		SOUTH AFRICA:  AVGOLD'S HARTEBEESTFONTEIN MINE	-26.857	26.619	10	15	1			46	1							15	1			46	1						
+7407		2006	6	3	16	34	25.8	10	3.8			3.8					MALAWI		MALAWI:  SALIMA	-14.52	34.28	10								1												1				
+7768		2008	2	14	2	7	46.7	10	4.9		4.9	5.4					RWANDA		RWANDA:  GISENYI	-2.404	28.918	10	1	1			109	3		1			5	1	1	1			109	3		1			5	1
+5577		2000	10	2	2	25	31.3	34	6.5	6.5	6.7	6.1					TANZANIA		"TANZANIA:  NKANSI, RUKWA"	-7.977	30.709	10					6	1		1	7	1	150	3					6	1		1	7	1	150	3
+10400		2019	3	21	9	15	40.0	22	5.5	5.5							TANZANIA		"TANZANIA:  SONGWE, MBEYA"	-7.878	32.085	10	1	1						1	4	1		1	1	1						1	4	1		1
+4665		1974	9	23	19	28	17.2	33	6.2		6.2	5.9			6.4		GABON		GABON	-0.28	12.92	10								2																
+8188	Tsu	1930	11	5												5	KENYA		MONGOLIA	-4.05	39.667	10																								
+10148		2015	8	7	1	25	54.0	11	5.8	5.8						4	RWANDA		RWANDA:  BUKAVU	-2.141	28.897	10	3	1			30	1							3	1			30	1						
+5261		1990	10	18	9	30	44.4	5	4.0			4.0					SOUTH AFRICA		SOUTH AFRICA:  CHARLETONVILLE	-26.39	27.349	10	10	1			6	1							10	1			6	1						
+1528		1795	5	20	22				5.2						5.2	5	SIERRA LEONE		SIERRA LEONE	9.3	-13.4	10								2																
+10330		2018	5	3	11	17			2.1				2.1				SOUTH AFRICA		SOUTH AFRICA:  WEST RAND	-26.4	27.5	10	7	1			6	1							7	1			6	1						
+2265		1879	2	11	6				5.7						5.7	8	COTE D'IVOIRE		COTE D'IVOIRE:  ABIDJAN	6.5	-3.3	10								2																
+5764		2004	2	24	2	14	34.0	10	4.7			4.7					BURUNDI		BURUNDI:  RUYAGA	-3.393	29.558	10	3	1						1	24	1			3	1						1	24	1		
+8187		1968	3	20	19	2	50.3	33	4.6		4.6						KENYA		"KENYA:  HOMA BAY, USIRI, GOT KOKECH"	-0.6	34.4	10	1	1			1	1		1					1	1			1	1		1				
+10404		2017	2	24	0	32	8.0	30	5.9	5.9							ZAMBIA		ZAMBIA:  KAPUTA	-8.44	30.031	10					5	1		1		1							5	1		1		1		
+10228		2016	9	23	16	12	1.0	10	4.8			4.8					RWANDA		RWANDA:  RISUZI; CONGO:  UKAVU	-2.65	29.06	10	8	1				1		1	22	1			8	1				1		1	22	1		
+5259		1990	9	26	23	8	23.9	5	4.2		4.2	5.4					SOUTH AFRICA		SOUTH AFRICA:  WELKOM	-28.014	26.727	10	2	1			5	1		1					2	1			5	1		1				
+4483		1969	3	29	9	15	54.0	35	6.2		6.2	6.0				9	ETHIOPIA		ETHIOPIA:  SARDO	11.9	41.21	10	40	1			160	3	0.32	1		3			40	1			160	3	0.32	1		3		
+5110		1986	10	5	18	53	20.9	5	4.8		4.8	4.9				4	SOUTH AFRICA		"SOUTH AFRICA:  MOUNT FRERE, DURBAN"	-30.546	28.737	10								1												1				
+10257		2017	6	24	2	37	48.0	27	5.6	5.6							MOZAMBIQUE		MOZAMBIQUE	-19.45	34.488	10					4	1		1	2	1	2	1					4	1		1	2	1	2	1
+931		1636	12	18	14				5.7						5.7	9	GHANA	NV	"GHANA:  FORT DUMA, AWOIN"	5.1	-2.2	10		3						3																
+920		1631	2	10					5.7						5.7	9	ETHIOPIA		ETHIOPIA	11.2	41.7	10								2																
+3806		1945	9	12	0	51			6.2						6.2	8	CAMEROON		CAMEROON:  CONGO; CENTRAL AFRICAN REPUBLIC	2.5	15.6	10								1																
+1866		1845	2	12													ETHIOPIA		ETHIOPIA	12.3	39.0	10		2																						
+2199		1872	4	14	23				4.9						4.9	7	GHANA		GHANA:  ACCRA	5.5	-0.4	10								2																
+2916		1910	12	13	11	37	24.0		7.3		7.3						ZAMBIA		ZAMBIA	-8.0	31.0	10	2	1						2																
+3800		1945	3	18	8	1	26.0		6.0		6.0					9	UGANDA		UGANDA:  MASARA		32.0	10	5	1						2																
+3176		1921	9	16	0	51			4.8						4.8	8	CENTRAL AFRICAN REPUBLIC		CENTRAL AFRICAN REPUBLIC:  NOLA	3.8	16.3	10								1																
+4633		1973	4	1	7	12	37.0	31	5.9		5.9				6.0		ETHIOPIA		ETHIOPIA:  DJIBOUTI	11.66	43.03	10								2																
+4504		1969	10	5	1	22		33	5.8						5.8		SOUTH AFRICA		SOUTH AFRICA:  TULBAGH	-33.1	19.6	10								2																
+8203		1809	12	4													SOUTH AFRICA		SOUTH AFRICA:  CAPE OF GOOD HOPE	-33.88	18.45	10																								
+1586		1810	3	20												9	CANARY ISLANDS		CANARY ISLANDS:  TENERIFE	28.2	-16.6	10		3																						
+8792		2009	12	6	21	51	59.8	2	3.5				3.5				SOUTH AFRICA		SOUTH AFRICA:  CARLETONVILLE	-26.414	27.494	10	2	1			3	1							2	1			3	1						
+1551		1800															CANARY ISLANDS		CANARY ISLANDS:  PENON DE LA GOMERA	28.1	-17.1	10																								
+2389		1889							4.7						4.7	8	COTE D'IVOIRE		COTE D'IVOIRE:  BAIBU	6.8	-6.7	10								2																
+5555		2000	2	7	19	34	57.0	5	4.5			4.5					SOUTH AFRICA		SOUTH AFRICA; SWAZILAND:  MBABANE-MANZINI	-26.288	30.888	10					1	1		1									1	1		1				
+5658		2002	10	24	6	8	37.9	11	6.2	6.2	6.3	5.9					CONGO		"CONGO: GOMA, LWIRO, BUKAVU; RWANDA:  MUGERA, KIGALI"	-1.884	29.004	10	2	1						1		2			2	1						1		2		
+2789	Tsu	1906	11	20	21	0			5.0					5.0		8	GHANA		"GHANA:  HO, AKPAFU, PALIME, MISA, ACCRA; TOGO"	6.5	0.3	10								2		3										2		3		
+4232		1960	9	22	9	5	32.5	28	6.6		6.6						CONGO		CONGO:  LAKE TANGANYIKA	-3.6	29.0	10	24	1						2				3	24	1						2				3
+7978	Tsu	1820							6.2					6.2		5	CONGO		CONGO:  LOANGO	-4.5	11.6	10														3						1				
+2241		1875	11	2					6.2						6.2		ETHIOPIA		"ETHIOPIA:  ERITREA, TIGRAY"	16.0	38.5	10		2						3																
+1262		1733	11	29													ETHIOPIA		ETHIOPIA:  ERITREA	15.7	39.0	10		2																						
+8158		1909	4	26													CAMEROON		CAMEROON:  BUEA	4.2	9.2	10								1																
+
+Q5- Arrange the data of first 20 values of magnitude of earthquake in descending order.	
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` 
+order by eq_mag_mw desc
+limit 20
+
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+4227	Tsu	1960	5	22	19	11	17.0	33	9.5	9.5	8.5					12	CHILE		"CHILE:  PUERTO MONTT, VALDIVIA"	-38.143	-73.407	160	2000	4			3000	4	1000.0	4	58622	4			2226	4			3000	4	1000.0	4	58622	4		
+4311	Tsu	1964	3	28	3	36		33	9.2	9.2	8.4					10	USA	AK	ALASKA	61.017	-147.648	150	15	1					284.0	4		3			139	3					400.0	4		3		
+9799	Tsu	2011	3	11	5	46	24.1	30	9.1	9.1	8.3	7.2					JAPAN		JAPAN:  HONSHU	38.297	142.372	30	1475	4			6157	4	4401.709	4	2473	4	5618	4	18434	4			6157	4	220085.456	4	123661	4	280920	4
+5823	Tsu	2004	12	26	0	58	53.4	30	9.1	9.1	8.8	7.0					INDONESIA		INDONESIA:  SUMATRA:  ACEH:  OFF WEST COAST	3.316	95.854	60	1001	4				3	10000.0	4		3		3	227899	4				3	10000.0	4		4		4
+1246	Tsu	1730	7	8	8	45			9.1	9.1	8.7					11	CHILE		CHILE:  VALPARAISO	-32.5	-71.5	160	2	1						3		3			5	1						3		3		
+4007	Tsu	1952	11	4	16	58	27.9	22	9.0	9.0	8.5					7	RUSSIA		RUSSIA:  KAMCHATKA PENINSULA	52.755	160.057	50		1											10000	4						3				
+8872	Tsu	2010	2	27	6	34	11.5	23	8.8	8.8	8.5	7.2				9	CHILE		"CHILE:  MAULE, CONCEPCION, TALCAHUANO"	-36.122	-72.898	160	402	3			12000	4	30000.0	4			500000	4	558	3			12000	4	30000.0	4			500000	4
+3202	Tsu	1922	11	11	4	32	36.0	35	8.7	8.7	8.3					11	CHILE		CHILE:  ATACAMA	-28.553	-70.755	160	500	3						3		3			700	3						3		3		
+4337	Tsu	1965	2	4	5	1	21.6	36	8.7	8.7	7.8	7.7				6	USA	AK	ALASKA:  ALEUTIAN ISLANDS:  RAT ISLANDS	51.29	178.55	150								1											0.01	1				
+2748	Tsu	1906	1	31	15	35	51.0	25	8.6	8.6	8.6	8.2				9	ECUADOR		ECUADOR:  OFF COAST	1.0	-81.5	160	1000	3						2		3			1000	3						3		3		
+3950	Tsu	1950	8	15	14	9	30.0	33	8.6	8.6	8.6	8.0				11	INDIA		INDIA-CHINA	28.5	96.5	60	1530	4					20.0	3					1530	4					20.0	3				
+9879	Tsu	2012	4	11	8	38	36.7	20	8.6	8.6	8.5	7.4					INDONESIA		INDONESIA:  N SUMATRA:  OFF WEST COAST	2.327	93.063	60	10	1			12	1		1				2	10	1			12	1		1				2
+6657	Tsu	2005	3	28	16	9	36.5	30	8.6	8.6	8.4	7.2					INDONESIA		INDONESIA:  SUMATERA:  SW	2.085	97.108	60	1303	4			340	3		4	300	3	300	3	1313	4			340	3		4	300	3		
+3822	Tsu	1946	4	1	12	29	1.3	15	8.6	8.6	7.3					6	USA	AK	ALASKA:  UNIMAK ISLAND	53.492	-162.832	150													167	3					26.271	4		3		
+4116	Tsu	1957	3	9	14	22	31.9	33	8.6	8.6	9.1						USA	AK	ALASKA	51.292	-175.629	150								1					2	1			1	1		3				
+1339	Tsu	1755	11	1	9	30			8.5	8.5						11	PORTUGAL		PORTUGAL:  LISBON	37.0	-10.0	130	50000	4						4					50000	4						4				
+3609	Tsu	1938	2	1	19	4	18.0	25	8.5	8.5	8.2						INDONESIA		INDONESIA:  NEW GUINEA	-5.25	130.5	170																				2	24	1	8	1
+4304	Tsu	1963	10	13	5	17	53.4	13	8.5	8.5	8.1	7.7				9	RUSSIA		RUSSIA:  KURIL ISLANDS	44.77	149.798	50								1												1				
+2722		1905	7	9	9	40	24.0	33	8.4	8.4	8.3						MONGOLIA		MONGOLIA	49.0	99.0	40																								
+3512	Tsu	1933	3	2	17	31	0.9	35	8.4	8.4	8.5						JAPAN		JAPAN:  SANRIKU	39.224	144.622	30										3			3022	4						4	6000	4		
+
+Q- What are the first 30 values of Latitude which are greater than thirty eight?
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where latitude > 38
+limit 30
+
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+338		1048															UK		UNITED KINGDOM:  BRITIAN	52.0		120		3																						
+771	Tsu	1580	4	6				33	6.2				6.2				UK		UNITED KINGDOM:  DOVER STRAITS	51.019	1.309	120		2						2																
+7889	Tsu	1757	7	15													UK		"UNITED KINGDOM:  ENGLAND: ST. MARY, SCILLY ISLANDS"	49.92	-6.32	120																								
+6013	Tsu	1668	4	13												4	USA	MA	"BOSTON AND SALEM, MASSACHUSETTS"	42.35	-71.05	150																								
+5828	Tsu	1755	11	18	9	11	35.0		7.0				7.0			8	USA	MA	MASSACHUSETTS:  EAST OF CAPE ANN	42.7	-70.3	150								2																
+5927	Tsu	1788	8	6					8.0		8.0						USA	AK	ALASKA PENINSULA	55.0	-161.0	150														3										
+6635	Tsu	1817	1	8													USA	PA	PENNSYLVANIA:  PHILADELPHIA	39.95	-75.1	150																								
+6650	Tsu	1820	3	1													USA	AK	ALASKA:  EAST ALEUTIAN ISLANDS	54.52	-164.65	150																								
+6636	Tsu	1823	5	30													USA	NY	LAKE ERIE (GREAT LAKES)	42.7	-79.0	150																								
+6514	Tsu	1840	11	11					5.2				5.2				USA	PA	PENNSYLVANIA:  PHILADELPHIA	39.8	-75.2	150																								
+6065	Tsu	1851	11	13	2	51											USA	CA	CALIFORNIA:  NORTHERN	40.0	-122.0	150																								
+6116	Tsu	1854	1	27	18	10										5	USA	AK	ALASKA:  GULF OF ALASKA	57.0	-152.0	150																								
+6121	Tsu	1855	3	20	0	30										5	USA	CA	CALIFORNIA:  NORTHERN	40.75	-124.2	150																								
+2093		1865	3	7	14											8	USA	CA	CALIFORNIA:  SONOMA COUNTY:  E CENTRAL	38.5	-122.5	150								2																
+2098		1865	10	1	17	15										9	USA	CA	"CALIFORNIA:  FORT HUMBOLDT, EUREKA"	41.0	-124.5	150								2																
+6565	Tsu	1866	9	5	13	0											USA	AK	"ALASKA:  KODIAK ISLAND, AK"	58.0	-152.0	150																								
+6156	Tsu	1868	5	15													USA	AK	ALASKA PENINSULA	55.0	-161.0	150																								
+6515	Tsu	1871	6	18	0	0											USA	NY	NEW YORK:  LONG ISLAND	40.5	-73.9	150																								
+6176	Tsu	1872	8	23	18	6											USA	AK	ALASKA:  ALEUTIAN ISLANDS:  FOX ISLANDS	52.2	-168.5	150																								
+6177		1872	11	18													USA	NH	NEW HAMPSHIRE: CONCORD	43.2	-71.53	150																								
+6198	Tsu	1878	8	29													USA	AK	ALASKA:  EAST ALEUTIAN ISLANDS	53.6	-166.4	150																								
+6199	Tsu	1880	9	29	4	0											USA	AK	ALASKA PENINSULA	55.8	-155.6	150																								
+6200	Tsu	1880	10	26	22	20			7.0		7.0						USA	AK	ALASKA:  SOUTHEASTERN	57.0	-136.0	150																								
+6516	Tsu	1884	8	10	19	7			5.5					5.5		7	USA	NY	"NEW YORK: ROCKAWAY BEACH, NEAR NEW YORK CITY"	40.6	-73.75	150																								
+7037	Tsu	1884	12	21													USA	CT	CONNECTICUT: NEW HAVEN	41.31	-72.92	150																								
+6980	Tsu	1891	11	29	23	21										6	USA	WA	WASHINGTON:  PUGET SOUND	48.0	-123.5	150																								
+2416		1892	4	19	10	50										9	USA	CA	"CALIFORNIA:  VACAVILLE,WINTERS"	38.5	-122.5	150							0.25	1																
+6637	Tsu	1895	9	1	11	9			4.3					4.3		6	USA	NY	NEW JERSEY: HIGH BRIDGE	40.667	-74.883	150																								
+2533		1898	4	14												10	USA	CA	"CALIFORNIA:  N COAST,MENDOCINO COUNTY"	39.0	-124.0	150								1																
+2540		1898	6	29	18	36			7.6						7.6		USA	AK	ALASKA:  ALEUTIAN ISLANDS:  NEAR ISLANDS	52.0	172.0	150																								
+
+Q7- What are the first 20 values of longitude less than one?
+select * from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where longitude < 1
+limit 20
+
+id	flag_tsunami	year	month	day	hour	minute	second	focal_depth	eq_primary	eq_mag_mw	eq_mag_ms	eq_mag_mb	eq_mag_ml	eq_mag_mfa	eq_mag_unk	intensity	country	state	location_name	latitude	longitude	region_code	deaths	deaths_description	missing	missing_description	injuries	injuries_description	damage_millions_dollars	damage_description	houses_destroyed	houses_destroyed_description	houses_damaged	houses_damaged_description	total_deaths	total_deaths_description	total_missing	total_missing_description	total_injuries	total_injuries_description	total_damage_millions_dollars	total_damage_description	total_houses_destroyed	total_houses_destroyed_description	total_houses_damaged	total_houses_damaged_description
+7889	Tsu	1757	7	15													UK		"UNITED KINGDOM:  ENGLAND: ST. MARY, SCILLY ISLANDS"	49.92	-6.32	120																								
+6013	Tsu	1668	4	13												4	USA	MA	"BOSTON AND SALEM, MASSACHUSETTS"	42.35	-71.05	150																								
+5828	Tsu	1755	11	18	9	11	35.0		7.0				7.0			8	USA	MA	MASSACHUSETTS:  EAST OF CAPE ANN	42.7	-70.3	150								2																
+5927	Tsu	1788	8	6					8.0		8.0						USA	AK	ALASKA PENINSULA	55.0	-161.0	150														3										
+7058	Tsu	1811	12	16	13	15			7.0	7.0	8.0			7.0		10	USA	AR	ARKANSAS: NORTHEAST (NEW MADRID EARTHQUAKES)	35.6	-90.4	150																								
+1597	Tsu	1812	1	23	15				7.3	7.3	8.4			7.1		10	USA	MO	MISSOURI:  NEW MADRID	36.3	-89.6	150								3																
+6635	Tsu	1817	1	8													USA	PA	PENNSYLVANIA:  PHILADELPHIA	39.95	-75.1	150																								
+6650	Tsu	1820	3	1													USA	AK	ALASKA:  EAST ALEUTIAN ISLANDS	54.52	-164.65	150																								
+6636	Tsu	1823	5	30													USA	NY	LAKE ERIE (GREAT LAKES)	42.7	-79.0	150																								
+1789		1836	6	10	15	30										10	USA	CA	CALIFORNIA	38.0	-122.0	150																								
+6514	Tsu	1840	11	11					5.2				5.2				USA	PA	PENNSYLVANIA:  PHILADELPHIA	39.8	-75.2	150																								
+6064	Tsu	1851	5	15	16	10										6	USA	CA	CALIFORNIA:  NORTHERN	37.8	-122.4	150																								
+6065	Tsu	1851	11	13	2	51											USA	CA	CALIFORNIA:  NORTHERN	40.0	-122.0	150																								
+1938		1853	2	1	21											8	USA	CA	CALIFORNIA:  SAN SIMEON	35.5	-121.0	150								2																
+6116	Tsu	1854	1	27	18	10										5	USA	AK	ALASKA:  GULF OF ALASKA	57.0	-152.0	150																								
+6117	Tsu	1854	5	31	12	59											USA	CA	CALIFORNIA:  SOUTHERN	34.4	-119.7	150																								
+6120	Tsu	1854	10	22	3	35											USA	CA	CALIFORNIA:  NORTHERN	37.8	-122.4	150																								
+6121	Tsu	1855	3	20	0	30										5	USA	CA	CALIFORNIA:  NORTHERN	40.75	-124.2	150																								
+10017	Tsu	1855	10	22	3	45											USA	CA	CALIFORNIA:  SAN FRANCISCO	37.8	-122.4	150																								
+2007		1857	1	9	10	13			8.3						8.3	7	USA	CA	CALIFORNIA:  SAN FRANCISCO	35.0	-119.0	150								3																
+
+Q8- What is the average values of latitude from the table of the year 2017?
+select avg (latitude) from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where year =2017
+
+f0_
+13.456625000000003
+
+Q9- What are the maximum values of longitude from the table for years after 2000.
+select max (longitude) from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` where year >2000
+
+f0_
+179.332
+
+Q10- What are the minimum values of death description from the table?
+select min (deaths_description) from `bigquery-public-data.noaa_significant_earthquakes.earthquakes` 
+
+f0_
+0
+
+Q11- join the columns Landfall from table- hurricane and region code from table-earthquake and execute the inner join command with the latitude from both the tables and represent the first 40 values.
+select `bigquery-public-data.noaa_hurricanes.hurricanes`.landfall,`bigquery-public-data.noaa_significant_earthquakes.earthquakes`.region_code from `bigquery-public-data.noaa_hurricanes.hurricanes` inner join `bigquery-public-data.noaa_significant_earthquakes.earthquakes` on `bigquery-public-data.noaa_hurricanes.hurricanes`.latitude= `bigquery-public-data.noaa_significant_earthquakes.earthquakes`.latitude limit 40
+
+landfall	region_code
+394	60
+394	60
+394	170
+394	60
+1396	160
+1396	160
+1396	160
+1396	90
+1396	10
+1339	90
+1339	10
+1380	100
+1380	100
+1380	100
+1380	100
+1380	90
+1089	10
+1089	170
+1089	170
+1089	170
+1089	170
+238	150
+238	170
+354	150
+491	30
+491	30
+491	30
+491	30
+785	140
+334	150
+297	160
+297	90
+425	160
+425	90
+189	160
+189	170
+0	90
+0	160
+0	170
+0	170
+
+Q12- join all the columns of table- hurricane and earthquake and represent the first 40 values using the full outer join command.
+select `bigquery-public-data.noaa_hurricanes.hurricanes`.landfall,`bigquery-public-data.noaa_significant_earthquakes.earthquakes`.region_code from `bigquery-public-data.noaa_hurricanes.hurricanes` full outer join `bigquery-public-data.noaa_significant_earthquakes.earthquakes` on `bigquery-public-data.noaa_hurricanes.hurricanes`.latitude= `bigquery-public-data.noaa_significant_earthquakes.earthquakes`.latitude limit 40
+
+landfall	region_code
+1035	
+1397	
+1970	
+516	
+423	
+594	
+78	
+1887	
+0	
+0	
+0	
+1380	
+52	
+2107	
+1621	
+1982	
+855	
+617	
+947	
+348	140
+348	30
+348	140
+0	90
+2178	
+826	
+597	
+276	
+131	140
+131	30
+131	140
+272	
+722	
+451	
+240	
+70	
+1626	
+150	
+1679	
+549	
+870	
+
+Q13- Combine all rows from the right table with all matching records from the left table and represent the first 40 values using the right join command.
+[here right table- earthquake and left table- hurricanes]
+select `bigquery-public-data.noaa_hurricanes.hurricanes`.landfall,`bigquery-public-data.noaa_significant_earthquakes.earthquakes`.region_code from `bigquery-public-data.noaa_hurricanes.hurricanes` right join `bigquery-public-data.noaa_significant_earthquakes.earthquakes` on `bigquery-public-data.noaa_hurricanes.hurricanes`.latitude= `bigquery-public-data.noaa_significant_earthquakes.earthquakes`.latitude limit 40
+
+landfall	region_code
+365	120
+	120
+	120
+0	120
+881	120
+692	120
+647	120
+882	120
+826	120
+0	120
+312	120
+394	120
+161	120
+0	120
+774	120
+813	120
+385	120
+87	120
+600	120
+176	120
+289	120
+	120
+416	120
+572	120
+230	120
+278	120
+46	120
+	120
+321	120
+	120
+	120
+136	120
+372	120
+	120
+819	120
+416	120
+	120
+347	120
+394	120
+445	120
